@@ -12,7 +12,7 @@ use Dwr\OpenWeather\OpenWeather;
 $apiKey = getenv('OPEN_WEATHER_API_KEY');
 $openWeatherConfig = new Configuration($apiKey);
 
-$openWeather = new OpenWeather('Weather', $openWeatherConfig);
-$weather = $openWeather->getByCityName('London');
+$openWeather = new OpenWeather('Forecast', $openWeatherConfig);
+$forecast = $openWeather->getByCityName('London');
 
-var_dump($weather);
+var_dump($forecast);
