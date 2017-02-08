@@ -65,6 +65,11 @@ class OpenWeather implements OpenWeatherInterface
         return false;
     }
 
+    public function getSupportedType()
+    {
+        return $this->supportedType;
+    }
+
     /**
      * @param string $cityName
      * @return ResponseInterface
