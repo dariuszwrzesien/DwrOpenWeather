@@ -9,13 +9,14 @@ require __DIR__ . '/../vendor/autoload.php';
 use Dwr\OpenWeather\Configuration;
 use Dwr\OpenWeather\OpenWeather;
 
-$openWeatherConfig = new Configuration('94c5d99609ec9ed7ce27d4fdef1ed11d');
+$apiKey = getenv('OPEN_WEATHER_API_KEY');
+$openWeatherConfig = new Configuration($apiKey);
 
 $openWeather = new OpenWeather('Weather', $openWeatherConfig);
-$cityWeather = $openWeather->getByCityName('London');
+$weather = $openWeather->getByCityName('London');
 
-//$forecast = new OpenWeather($config, Forecast::class);
-//$cityForecast = $forecast->getByGeographicCoordinates(35, 139);
+$openWeather = new OpenWeather('Forecast', $openWeatherConfig);
+$forecast = $openWeather->getByCityName('London');
 
-var_dump($cityWeather);
-//var_dump($cityForecast);
+var_dump($weather);
+var_dump($forecast);
