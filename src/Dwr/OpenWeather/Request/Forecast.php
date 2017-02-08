@@ -9,4 +9,9 @@ class Forecast implements RequestInterface
     {
         return self::$uri;
     }
+
+    public static function toString()
+    {
+        return 'Forecast';
+    }
 }

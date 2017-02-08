@@ -9,4 +9,9 @@ class Weather implements RequestInterface
     {
         return self::$uri;
     }
+
+    public static function toString()
+    {
+        return 'Weather';
+    }
 }

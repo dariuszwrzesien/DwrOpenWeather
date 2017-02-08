@@ -10,6 +10,9 @@ require_once '../OpenWeather/OpenWeather.php';
 require_once '../OpenWeather/Request/RequestInterface.php';
 require_once '../OpenWeather/Request/Weather.php';
 require_once '../OpenWeather/Request/Forecast.php';
+require_once '../OpenWeather/Response/ResponseInterface.php';
+require_once '../OpenWeather/Response/Weather.php';
+require_once '../OpenWeather/Response/Forecast.php';
 require_once '../OpenWeather/Configuration.php';
 
 require __DIR__ . '/../../../vendor/autoload.php';
@@ -21,8 +24,8 @@ use Dwr\OpenWeather\Request\Weather;
 
 $config = new Configuration('94c5d99609ec9ed7ce27d4fdef1ed11d');
 
-$weather = new OpenWeather($config, Forecast::class);
-$cityWeather = $weather->getByCityName('London');
+$openWeather = new OpenWeather($config, Weather::class);
+$cityWeather = $openWeather->getByCityName('London');
 
 //$forecast = new OpenWeather($config, Forecast::class);
 //$cityForecast = $forecast->getByGeographicCoordinates(35, 139);

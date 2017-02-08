@@ -1,7 +1,7 @@
 <?php
 namespace Dwr\OpenWeather\Response;
 
-class Weather implements ResponseInterface
+class Forecast implements ResponseInterface
 {
     /**
      * @var array
@@ -30,8 +30,8 @@ class Weather implements ResponseInterface
     public function __construct(array $data)
     {
         foreach ($data as $key => $value) {
-            if (isset($this->$key)) {
-               $this->$key = $value;
+            if (property_exists($this, $key)) {
+                $this->$key = $value;
             }
         }
     }

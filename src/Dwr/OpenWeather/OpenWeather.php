@@ -1,6 +1,7 @@
 <?php
 namespace Dwr\OpenWeather;
 
+use Dwr\OpenWeather\Response\Weather;
 use GuzzleHttp\Client;
 
 class OpenWeather implements OpenWeatherInterface
@@ -37,9 +38,11 @@ class OpenWeather implements OpenWeatherInterface
     private function request(array $parameters)
     {
         $parameters['query']['appid'] = $this->config->apiKey();
-        $response = $this->client->get($this->buildUri($this->requestType), $parameters);
+        $response = $this->client->get($this->buildUri(self::$requestType), $parameters);
 
-        return json_decode($response->getBody(), true);
+        $requestTypeName = self::requestType::toString();
+
+        return new $this->requestType(json_decode($response->getBody(), true));
     }
 
     private function buildUri($requestType)
