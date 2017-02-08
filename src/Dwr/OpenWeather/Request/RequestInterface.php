@@ -3,5 +3,10 @@ namespace Dwr\OpenWeather\Request;
 
 interface RequestInterface
 {
-    public static function getUri();
+    /**
+     * Returns request URI.
+     * @return string
+     */
+    public function getUri();
+
 }

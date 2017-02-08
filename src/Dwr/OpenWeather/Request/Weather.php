@@ -3,15 +3,10 @@ namespace Dwr\OpenWeather\Request;
 
 class Weather implements RequestInterface
 {
-    private static $uri = '/weather';
+    const URI = '/weather';
 
-    public static function getUri()
+    public function getUri()
     {
-        return self::$uri;
-    }
-
-    public static function toString()
-    {
-        return 'Weather';
+        return self::URI;
     }
 }

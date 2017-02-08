@@ -51,7 +51,7 @@ class Weather implements ResponseInterface
     /**
      * @var int
      */
-    private $dataTime;
+    private $dt;
 
     /**
      * @var array
@@ -68,6 +68,7 @@ class Weather implements ResponseInterface
             if (property_exists($this, $key)) {
                $this->$key = $value;
             }
+
         }
     }
 
@@ -146,9 +147,9 @@ class Weather implements ResponseInterface
     /**
      * @return int
      */
-    public function dataTime()
+    public function dt()
     {
-        return $this->dataTime;
+        return $this->dt;
     }
 
     /**
