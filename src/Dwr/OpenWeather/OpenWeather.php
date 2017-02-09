@@ -38,7 +38,7 @@ class OpenWeather implements OpenWeatherInterface
     {
         if ( ! $this->isType($type)) {
             throw new \InvalidArgumentException(
-                'Unknown OpenWeather type. Supported types are ' . implode(', ', $this->supportedType)
+                'Unknown OpenWeather type. Supported types are: ' . implode(', ', $this->supportedType)
             );
         }
 
