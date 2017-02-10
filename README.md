@@ -9,8 +9,9 @@
 
 # DwrOpenWeather
 
-DwrOpenWeather is a simply wrapper for [Open Weather API](https://openweathermap.org/).
-In order to start please generate your personal ApiKey first. You may do it [here](http://openweathermap.org/appid).
+DwrOpenWeather is a simply wrapper for [Open Weather API](https://openweathermap.org/).  
+In order to start please generate your personal ApiKey first.  
+You can do it [here](http://openweathermap.org/appid).  
  
 ## Installation and usage
 When you have ApiKey installation and usage is very easy.
@@ -31,9 +32,9 @@ or download it by running the command:
     $ php composer.phar update dwr/openweather-bundle
 ```
 
-### Step 2: Use library in your application
+### Step 2: Use it in your application
 
-#### Weather
+#### GET Weather
 
 ```php
     require __DIR__ . '/../vendor/autoload.php';
@@ -55,7 +56,7 @@ You can get weather from OpenWeather API using:
 * getByCityId('2643743')
 * getByGeographicCoordinates(-0.12574, 51.50853)
 
-#### Forecast
+#### GET Forecast
 ```php
     require __DIR__ . '/../vendor/autoload.php';
     
