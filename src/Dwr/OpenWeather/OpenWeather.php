@@ -44,10 +44,7 @@ class OpenWeather implements OpenWeatherInterface
 
         $this->type = $type;
         $this->config = $config;
-        $this->client = new Client([
-            'base_uri' => $config->baseUri(),
-            'timeout' => $config->timeout()
-        ]);
+        $this->client = $config->getHttpClient();
     }
 
     /**
@@ -65,6 +62,9 @@ class OpenWeather implements OpenWeatherInterface
         return false;
     }
 
+    /**
+     * @return array
+     */
     public function getSupportedType()
     {
         return $this->supportedType;

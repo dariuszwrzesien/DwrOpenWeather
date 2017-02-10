@@ -1,6 +1,9 @@
 <?php
 namespace Dwr\OpenWeather;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+
 class Configuration
 {
     const DEFAULT_BASE_URI = 'http://api.openweathermap.org';
@@ -23,6 +26,11 @@ class Configuration
     private $timeout;
 
     /**
+     * HTTP Client
+     */
+    private $httpClient;
+
+    /**
      * @var string
      */
     private $apiKey;
@@ -36,6 +44,7 @@ class Configuration
         $this->baseUri = self::DEFAULT_BASE_URI;
         $this->version = self::DEFAULT_VERSION;
         $this->timeout = self::DEFAULT_TIMEOUT;
+        $this->httpClient = $this->getHttpClient();
         $this->apiKey = $apiKey;
     }
 
@@ -85,6 +94,36 @@ class Configuration
     public function setTimeout($timeout)
     {
         $this->timeout = $timeout;
+    }
+
+    /**
+     * @param ClientInterface $httpClient
+     */
+    public function setHttpClient(ClientInterface $httpClient)
+    {
+        $this->httpClient = $httpClient;
+    }
+
+    /**
+     * @return Client
+     */
+    public function getHttpClient()
+    {
+        if ($this->httpClient) {
+            return $this->httpClient;
+        }
+        return $this->httpClient = $this->setDefaultHttpClient();
+    }
+
+    /**
+     * @return Client
+     */
+    private function setDefaultHttpClient()
+    {
+        return new Client([
+            'base_uri' => self::DEFAULT_BASE_URI,
+            'timeout' => self::DEFAULT_TIMEOUT
+        ]);
     }
 
     /**
