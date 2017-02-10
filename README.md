@@ -3,7 +3,7 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status](https://travis-ci.org/dariuszwrzesien/DwrOpenWeather.svg?branch=master)](https://travis-ci.org/dariuszwrzesien/DwrOpenWeather)
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
+[![Coverage Status](https://coveralls.io/repos/github/dariuszwrzesien/DwrOpenWeather/badge.svg?branch=master)](https://coveralls.io/github/dariuszwrzesien/DwrOpenWeather?branch=master)
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
