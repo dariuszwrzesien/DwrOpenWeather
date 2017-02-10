@@ -13,6 +13,6 @@ $apiKey = getenv('OPEN_WEATHER_API_KEY');
 $openWeatherConfig = new Configuration($apiKey);
 
 $openWeather = new OpenWeather('Weather', $openWeatherConfig);
-$weather = $openWeather->getByCityName('London');
+$weather = $openWeather->getByCityId(2643743);
 
 var_dump($weather);

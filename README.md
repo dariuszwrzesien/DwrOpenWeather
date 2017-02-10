@@ -7,7 +7,109 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dariuszwrzesien/DwrOpenWeather/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dariuszwrzesien/DwrOpenWeather/?branch=master)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-### DwrOpenWeather
+# DwrOpenWeather
+
+DwrOpenWeather is a simply wrapper for [Open Weather API](https://openweathermap.org/).
+In order to start please generate your personal ApiKey first. You may do it [here](http://openweathermap.org/appid).
+ 
+## Installation and usage
+When you have ApiKey installation and usage is very easy.
+
+### Step 1: Download DwrOpenWeather using composer
+Add DwrOpenWeather in your composer.json:
+
+```json
+    {
+        "require": {
+            "dwr/openweather": "1.0"
+        }
+    }
+```
+or download it by running the command:
+
+```bash
+    $ php composer.phar update dwr/openweather-bundle
+```
+
+### Step 2: Use library in your application
+
+#### Weather
+
+```php
+    require __DIR__ . '/../vendor/autoload.php';
+    
+    use Dwr\OpenWeather\Configuration;
+    use Dwr\OpenWeather\OpenWeather;
+    
+    $apiKey = YOURS-API-KEY; //consider keeping api key in envirinment variable: getenv('OPEN_WEATHER_API_KEY'); 
+    $openWeatherConfig = new Configuration($apiKey);
+    
+    $openWeather = new OpenWeather('Weather', $openWeatherConfig);
+    $weather = $openWeather->getByCityName('London');
+    
+    var_dump($weather);
+```
+
+You can get weather from OpenWeather API using:
+* getByCityName('London')
+* getByCityId('2643743')
+* getByGeographicCoordinates(-0.12574, 51.50853)
+
+#### Forecast
+```php
+    require __DIR__ . '/../vendor/autoload.php';
+    
+    use Dwr\OpenWeather\Configuration;
+    use Dwr\OpenWeather\OpenWeather;
+    
+    $apiKey = YOURS-API-KEY; //consider keeping api key in envirinment variable: getenv('OPEN_WEATHER_API_KEY'); 
+    $openWeatherConfig = new Configuration($apiKey);
+    
+    $openWeather = new OpenWeather('Forecast', $openWeatherConfig);
+    $forecast = $openWeather->getByCityName('London');
+    
+    var_dump($forecast);
+```
+You can get forecast from OpenWeather API using:
+* getByCityName('London')
+* getByCityId('2643743')
+* getByGeographicCoordinates(-0.12574, 51.50853)
+
+## Configuration
+
+If you like you may configure library on your own.
+There is several variables which you can set by yourself:
+* baseUri, 
+* version, 
+* timeout, 
+* httpClient 
+* apiKey;
+
+```php
+    require __DIR__ . '/../vendor/autoload.php';
+    
+    use Dwr\OpenWeather\Configuration;
+    use Dwr\OpenWeather\OpenWeather;
+    
+    $apiKey = YOURS-API-KEY; //consider keeping api key in envirinment variable: getenv('OPEN_WEATHER_API_KEY'); 
+    $openWeatherConfig = new Configuration($apiKey);
+    
+    //CONFIGURATION DwrOpenWeather
+    $openWeatherConfig->setBaseUri(NEW-BASE-URI);
+    $openWeatherConfig->setVersion(NEW-API-VERSION);
+    $openWeatherConfig->setTimeout(NEW-TIMEOUT);
+    $openWeatherConfig->setHttpClient(NEW-HTTP-CLIENT); //Has to implement GuzzleHttp\ClientInterface
+    $openWeatherConfig->setApiKey(NEW-API-URI);
+    
+    $openWeather = new OpenWeather('Weather', $openWeatherConfig);
+```
+
+
+
+
+## Examples
+Take a moment and check examples directory in DwrOpenWeather maybe you find there a solution which you like.
+
 
 ## License
 

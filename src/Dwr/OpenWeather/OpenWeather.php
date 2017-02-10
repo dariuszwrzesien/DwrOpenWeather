@@ -93,9 +93,9 @@ class OpenWeather implements OpenWeatherInterface
      * @param int $lon
      * @return ResponseInterface
      */
-    public function getByGeographicCoordinates($lat, $lon)
+    public function getByGeographicCoordinates($lon, $lat)
     {
-        return $this->request(['query' => ['lat' => (int)$lat, 'lon' => (int)$lon]]);
+        return $this->request(['query' => ['lon' => $lon, 'lat' => $lat]]);
     }
 
     /**
