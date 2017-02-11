@@ -10,4 +10,4 @@ script:
   - mkdir -p build/logs
   - php vendor/bin/phpunit -c phpunit.xml.dist
 after_script:
-  - travis_retry php vendor/bin/coveralls
+  - travis_retry php vendor/bin/coveralls -v
