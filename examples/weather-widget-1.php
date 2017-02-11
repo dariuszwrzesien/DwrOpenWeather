@@ -36,11 +36,13 @@ $weatherWeather = $weather->weather();
 <body>
     <div class="ow-container">
         <div class="ow-icon">
-            <img src="http://openweathermap.org/img/w/<?php echo $weatherWeather[0]['icon'] ?>.png">
+            <img src="http://openweathermap.org/img/w/<?php echo $weatherWeather[0]['icon'] ?>.png" alt="<?php echo $weatherWeather[0]['description'] ?>">
         </div>
         <div class="ow-data-table">
-            <div>Weather in <?php echo $weather->cityName() ?></div>
-            <div>Temperature: <?php echo Converter::kelvinToCelsius($weatherMain['temp']) ?>&deg;C</div>
+            <div class="location">Weather in <?php echo $weather->cityName() ?></div>
+            <div class="temperature">Temperature: <?php echo Converter::kelvinToCelsius($weatherMain['temp']) ?>&deg;C</div>
+            <div class="pressure">Pressure: <?php echo $weatherMain['pressure'] ?>hPa</div>
+            <div class="humidity">Humidity: <?php echo $weatherMain['humidity'] ?>%</div>
         </div>
         <div></div>
     </div>
