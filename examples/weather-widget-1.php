@@ -16,9 +16,6 @@ $openWeatherConfig = new Configuration($apiKey);
 $openWeather = new OpenWeather('Weather', $openWeatherConfig);
 $weather = $openWeather->getByCityName('Gliwice');
 
-$weatherMain = $weather->main();
-$weatherWeather = $weather->weather();
-
 ?>
 
 <!doctype html>
@@ -36,13 +33,17 @@ $weatherWeather = $weather->weather();
 <body>
     <div class="ow-container">
         <div class="ow-icon">
-            <img src="http://openweathermap.org/img/w/<?php echo $weatherWeather[0]['icon'] ?>.png" alt="<?php echo $weatherWeather[0]['description'] ?>">
+            <img src="http://openweathermap.org/img/w/<?php echo $weather->icon() ?>.png" alt="<?php echo $weather->description() ?>">
         </div>
         <div class="ow-data-table">
             <div class="location">Weather in <?php echo $weather->cityName() ?></div>
-            <div class="temperature">Temperature: <?php echo Converter::kelvinToCelsius($weatherMain['temp']) ?>&deg;C</div>
-            <div class="pressure">Pressure: <?php echo $weatherMain['pressure'] ?>hPa</div>
-            <div class="humidity">Humidity: <?php echo $weatherMain['humidity'] ?>%</div>
+            <div class="location">Weather in <?php echo $weather->description() ?></div>
+            <div class="temperature">Temperature: <?php echo Converter::kelvinToCelsius($weather->temp()) ?> &deg;C</div>
+            <div class="pressure">Pressure: <?php echo $weather->pressure() ?> hPa</div>
+            <div class="pressure">Wind: <?php echo $weather->windSpeed() ?> m/s</div>
+            <div class="humidity">Humidity: <?php echo $weather->humidity() ?> %</div>
+            <div class="sunrise">Sunrise: <?php echo Converter::intToDate($weather->sunrise(), 'H:i:s') ?> </div>
+            <div class="sunset">Sunset: <?php echo Converter::intToDate($weather->sunset(), 'H:i:s') ?> </div>
         </div>
         <div></div>
     </div>

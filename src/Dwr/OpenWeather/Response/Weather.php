@@ -159,4 +159,100 @@ class Weather implements ResponseInterface
     {
         return $this->sys;
     }
+
+    /**
+     * @return string
+     */
+    public function icon()
+    {
+        return ($this->weather) ? $this->weather[0]['icon'] : '';
+    }
+
+    /**
+     * @return string
+     */
+    public function description()
+    {
+        return ($this->weather) ? $this->weather[0]['description'] : '';
+    }
+
+    /**
+     * @return float|string
+     */
+    public function temp()
+    {
+        return ($this->main) ? $this->main['temp'] : '';
+    }
+
+    /**
+     * @return float|string
+     */
+    public function pressure()
+    {
+        return ($this->main) ? $this->main['pressure'] : '';
+    }
+
+    /**
+     * @return float|string
+     */
+    public function humidity()
+    {
+        return ($this->main) ? $this->main['humidity'] : '';
+    }
+
+    /**
+     * @return float|string
+     */
+    public function tempMin()
+    {
+        return ($this->main) ? $this->main['temp_min'] : '';
+    }
+
+    /**
+     * @return float|string
+     */
+    public function tempMax()
+    {
+        return ($this->main) ? $this->main['temp_max'] : '';
+    }
+
+    /**
+     * @return float|string
+     */
+    public function windSpeed()
+    {
+        return ($this->wind) ? $this->wind['speed'] : '';
+    }
+
+    /**
+     * @return int|string
+     */
+    public function windDeg()
+    {
+        return ($this->wind) ? $this->wind['deg'] : '';
+    }
+
+    /**
+     * @return string
+     */
+    public function country()
+    {
+        return ($this->sys) ? $this->sys['country'] : '';
+    }
+
+    /**
+     * @return int|string
+     */
+    public function sunrise()
+    {
+        return ($this->sys) ? $this->sys['sunrise'] : '';
+    }
+
+    /**
+     * @return int|string
+     */
+    public function sunset()
+    {
+        return ($this->sys) ? $this->sys['sunset'] : '';
+    }
 }
