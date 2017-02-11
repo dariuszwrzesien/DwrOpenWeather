@@ -14,9 +14,11 @@ In order to start please generate your personal ApiKey first.
 You can do it [here](http://openweathermap.org/appid).  
  
 ## Installation and usage
+
 When you have ApiKey installation and usage is very easy.
 
 ### Step 1: Download DwrOpenWeather using composer
+
 Add DwrOpenWeather in your composer.json:
 
 ```json
@@ -42,7 +44,7 @@ or download it by running the command:
     use Dwr\OpenWeather\Configuration;
     use Dwr\OpenWeather\OpenWeather;
     
-    $apiKey = YOURS-API-KEY; //consider keeping api key in envirinment variable: getenv('OPEN_WEATHER_API_KEY'); 
+    $apiKey = YOURS-API-KEY; //consider keeping api key in environment variable: getenv('OPEN_WEATHER_API_KEY'); 
     $openWeatherConfig = new Configuration($apiKey);
     
     $openWeather = new OpenWeather('Weather', $openWeatherConfig);
@@ -51,19 +53,25 @@ or download it by running the command:
     var_dump($weather);
 ```
 
-You can get weather from OpenWeather API using:
+You can get weather from OpenWeather API by using:
 * getByCityName('London')
-* getByCityId('2643743')
+* getByCityId('2643743')  
+  List of city ID city.list.json.gz can be downloaded [here](http://bulk.openweathermap.org/sample/)
 * getByGeographicCoordinates(-0.12574, 51.50853)
 
 #### GET Forecast
+
 ```php
     require __DIR__ . '/../vendor/autoload.php';
     
     use Dwr\OpenWeather\Configuration;
     use Dwr\OpenWeather\OpenWeather;
     
-    $apiKey = YOURS-API-KEY; //consider keeping api key in envirinment variable: getenv('OPEN_WEATHER_API_KEY'); 
+    $apiKey = YOURS-API-KEY; 
+   
+    //Consider keeping api key in environment variable.
+    //$apiKey = getenv('OPEN_WEATHER_API_KEY');
+    
     $openWeatherConfig = new Configuration($apiKey);
     
     $openWeather = new OpenWeather('Forecast', $openWeatherConfig);
@@ -71,14 +79,15 @@ You can get weather from OpenWeather API using:
     
     var_dump($forecast);
 ```
-You can get forecast from OpenWeather API using:
+You can get forecast from OpenWeather API by using:
 * getByCityName('London')
-* getByCityId('2643743')
+* getByCityId('2643743')  
+  List of city ID city.list.json.gz can be downloaded [here](http://bulk.openweathermap.org/sample/)
 * getByGeographicCoordinates(-0.12574, 51.50853)
 
 ## Configuration
 
-If you like you may configure library on your own.
+You may configure library on your own if you like.
 There is several variables which you can set by yourself:
 * baseUri, 
 * version, 
@@ -92,7 +101,11 @@ There is several variables which you can set by yourself:
     use Dwr\OpenWeather\Configuration;
     use Dwr\OpenWeather\OpenWeather;
     
-    $apiKey = YOURS-API-KEY; //consider keeping api key in envirinment variable: getenv('OPEN_WEATHER_API_KEY'); 
+    $apiKey = YOURS-API-KEY;
+    
+    //Consider keeping api key in environment variable.
+    //$apiKey = getenv('OPEN_WEATHER_API_KEY');
+        
     $openWeatherConfig = new Configuration($apiKey);
     
     //CONFIGURATION DwrOpenWeather
@@ -105,12 +118,9 @@ There is several variables which you can set by yourself:
     $openWeather = new OpenWeather('Weather', $openWeatherConfig);
 ```
 
-
-
-
 ## Examples
-Take a moment and check examples directory in DwrOpenWeather maybe you find there a solution which you like.
 
+Take a moment and check examples directory in DwrOpenWeather. Maybe you find there a solution which you like.
 
 ## License
 
