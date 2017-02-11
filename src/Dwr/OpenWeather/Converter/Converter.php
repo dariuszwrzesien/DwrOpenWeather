@@ -26,7 +26,7 @@ class Converter
 
     public static function intToDate($int, $format = null)
     {
-        if($format) {
+        if ($format) {
             return date($format, $int);
         }
 

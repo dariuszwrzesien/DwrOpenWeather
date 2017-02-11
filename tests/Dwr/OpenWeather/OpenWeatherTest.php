@@ -40,7 +40,7 @@ class OpenWeatherTest extends \PHPUnit_Framework_TestCase
     {
         $actual = 'Weather';
         $config = new Configuration('123');
-        $config->setHttpClient($this->httpClientMock( '{"name":"test"}'));
+        $config->setHttpClient($this->httpClientMock('{"name":"test"}'));
 
         $openWeather = new OpenWeather($actual, $config);
         $weather = $openWeather->getByCityId('123');
@@ -53,7 +53,7 @@ class OpenWeatherTest extends \PHPUnit_Framework_TestCase
     {
         $actual = 'Weather';
         $config = new Configuration('123');
-        $config->setHttpClient($this->httpClientMock( '{"name":"test"}'));
+        $config->setHttpClient($this->httpClientMock('{"name":"test"}'));
 
         $openWeather = new OpenWeather($actual, $config);
         $weather = $openWeather->getByCityId('123');
@@ -116,17 +116,17 @@ class OpenWeatherTest extends \PHPUnit_Framework_TestCase
 
         $arrayData = json_decode($jsonData, true);
 
-        $this->assertEquals($weather->cityId(),     $arrayData['id']);
-        $this->assertEquals($weather->cityName(),   $arrayData['name']);
-        $this->assertEquals($weather->coord(),      $arrayData['coord']);
-        $this->assertEquals($weather->weather(),    $arrayData['weather']);
-        $this->assertEquals($weather->base(),       $arrayData['base']);
-        $this->assertEquals($weather->main(),       $arrayData['main']);
+        $this->assertEquals($weather->cityId(), $arrayData['id']);
+        $this->assertEquals($weather->cityName(), $arrayData['name']);
+        $this->assertEquals($weather->coord(), $arrayData['coord']);
+        $this->assertEquals($weather->weather(), $arrayData['weather']);
+        $this->assertEquals($weather->base(), $arrayData['base']);
+        $this->assertEquals($weather->main(), $arrayData['main']);
         $this->assertEquals($weather->visibility(), $arrayData['visibility']);
-        $this->assertEquals($weather->wind(),       $arrayData['wind']);
-        $this->assertEquals($weather->clouds(),     $arrayData['clouds']);
-        $this->assertEquals($weather->dt(),         $arrayData['dt']);
-        $this->assertEquals($weather->sys(),        $arrayData['sys']);
+        $this->assertEquals($weather->wind(), $arrayData['wind']);
+        $this->assertEquals($weather->clouds(), $arrayData['clouds']);
+        $this->assertEquals($weather->dt(), $arrayData['dt']);
+        $this->assertEquals($weather->sys(), $arrayData['sys']);
     }
 
     public function testIfForecastRequestReturnMappedForecastResponse()
@@ -234,10 +234,10 @@ class OpenWeatherTest extends \PHPUnit_Framework_TestCase
 
         $arrayData = json_decode($jsonData, true);
 
-        $this->assertEquals($weather->city(),    $arrayData['city']);
+        $this->assertEquals($weather->city(), $arrayData['city']);
         $this->assertEquals($weather->message(), $arrayData['message']);
-        $this->assertEquals($weather->cnt(),     $arrayData['cnt']);
-        $this->assertEquals($weather->lists(),   $arrayData['list']);
+        $this->assertEquals($weather->cnt(), $arrayData['cnt']);
+        $this->assertEquals($weather->lists(), $arrayData['list']);
     }
 
     /**
@@ -254,7 +254,8 @@ class OpenWeatherTest extends \PHPUnit_Framework_TestCase
 
         $httpClientMock->expects($this->any())
             ->method('get')
-            ->will($this->returnValue(new Response(
+            ->will($this->returnValue(
+                new Response(
                     200,
                     ['Content-Type' => 'application/json; charset=utf-8'],
                     $expectedJsonResponseData,

@@ -10,7 +10,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $apiKey = '123';
         $config = new Configuration($apiKey);
 
-        $this->assertEquals($config->apiKey(),  $apiKey);
+        $this->assertEquals($config->apiKey(), $apiKey);
         $this->assertEquals($config->baseUri(), Configuration::DEFAULT_BASE_URI);
         $this->assertEquals($config->version(), Configuration::DEFAULT_VERSION);
         $this->assertEquals($config->timeout(), Configuration::DEFAULT_TIMEOUT);
