@@ -15,7 +15,7 @@ You can do it [here](http://openweathermap.org/appid).
  
 ## Installation and usage
 
-When you have ApiKey installation and usage is very easy.
+When you have ApiKey, installation and usage is very easy.
 
 ### Step 1: Download DwrOpenWeather using composer
 
@@ -88,7 +88,7 @@ You can get forecast from OpenWeather API by using:
 ## Configuration
 
 You may configure library on your own if you like.
-There is several variables which you can set by yourself:
+There are several variables which you can set by yourself:
 * baseUri, 
 * version, 
 * timeout, 
