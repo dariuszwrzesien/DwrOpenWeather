@@ -127,6 +127,19 @@ class OpenWeatherTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($weather->clouds(), $arrayData['clouds']);
         $this->assertEquals($weather->dt(), $arrayData['dt']);
         $this->assertEquals($weather->sys(), $arrayData['sys']);
+
+        $this->assertEquals($weather->icon(), $arrayData['weather'][0]['icon']);
+        $this->assertEquals($weather->description(), $arrayData['weather'][0]['description']);
+        $this->assertEquals($weather->temp(), $arrayData['main']['temp']);
+        $this->assertEquals($weather->pressure(), $arrayData['main']['pressure']);
+        $this->assertEquals($weather->humidity(), $arrayData['main']['humidity']);
+        $this->assertEquals($weather->tempMin(), $arrayData['main']['temp_min']);
+        $this->assertEquals($weather->tempMax(), $arrayData['main']['temp_max']);
+        $this->assertEquals($weather->windSpeed(), $arrayData['wind']['speed']);
+        $this->assertEquals($weather->windDeg(), $arrayData['wind']['deg']);
+        $this->assertEquals($weather->country(), $arrayData['sys']['country']);
+        $this->assertEquals($weather->sunrise(), $arrayData['sys']['sunrise']);
+        $this->assertEquals($weather->sunset(), $arrayData['sys']['sunset']);
     }
 
     public function testIfForecastRequestReturnMappedForecastResponse()

@@ -122,5 +122,4 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
             [['idate' => 1486935615, 'format' => 'Ymd'], '20170212']
         ];
     }
-
 }
