@@ -98,8 +98,8 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param $actual
-     * @param $expected
+     * @param array $actual
+     * @param string $expected
      *
      * @dataProvider intToDateProvider
      */
