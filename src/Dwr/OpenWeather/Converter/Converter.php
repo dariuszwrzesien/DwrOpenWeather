@@ -4,24 +4,26 @@ namespace Dwr\OpenWeather\Converter;
 
 class Converter
 {
+    const ROUND_FLOAT = 2;
+
     public static function kelvinToCelsius($temp)
     {
-        return (float) $temp - 273.15;
+        return round((float) $temp - 273.15, self::ROUND_FLOAT);
     }
 
     public static function celsiusToKelvin($temp)
     {
-        return (float) $temp + 273.15;
+        return round((float) $temp + 273.15, self::ROUND_FLOAT);
     }
 
     public static function kelvinToFahrenheit($temp)
     {
-        return (float) $temp * 9/5 - 459.67;
+        return round((float) $temp * 9/5 - 459.67, self::ROUND_FLOAT);
     }
 
     public static function fahrenheitToKelvin($temp)
     {
-        return ((float) $temp + 459.67) * 5/9;
+        return round(((float) $temp + 459.67) * 5/9, self::ROUND_FLOAT);
     }
 
     public static function intToDate($int, $format = null)
