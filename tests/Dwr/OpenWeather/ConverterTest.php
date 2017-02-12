@@ -96,4 +96,31 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
             [0, 255.37]
         ];
     }
+
+    /**
+     * @param $actual
+     * @param $expected
+     *
+     * @dataProvider intToDateProvider
+     */
+    public function testConvertIntToDateWithDefaultFormat($actual, $expected)
+    {
+        $this->assertEquals($expected, Converter::intToDate($actual['idate'], $actual['format']));
+    }
+
+    /**
+     * @return array
+     */
+    public function intToDateProvider()
+    {
+        return [
+            [['idate' => 0, 'format' => null], '1970-01-01 00:00:00'],
+            [['idate' => 1, 'format' => null], '1970-01-01 00:00:01'],
+            [['idate' => 946684800, 'format' => null], '2000-01-01 00:00:00'],
+            [['idate' => 1486935615, 'format' => null], '2017-02-12 21:40:15'],
+            [['idate' => 1486935615, 'format' => 'H:i:s'], '21:40:15'],
+            [['idate' => 1486935615, 'format' => 'Ymd'], '20170212']
+        ];
+    }
+
 }
