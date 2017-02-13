@@ -14,7 +14,7 @@ $apiKey = getenv('OPEN_WEATHER_API_KEY');
 $openWeatherConfig = new Configuration($apiKey);
 
 $openWeather = new OpenWeather('Weather', $openWeatherConfig);
-$weather = $openWeather->getByCityName('Llanfairpwllgwyngyll');
+$weather = $openWeather->getByCityName('Los Angeles');
 
 ?>
 
