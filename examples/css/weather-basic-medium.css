@@ -1,12 +1,11 @@
 .ow-container .bold{font-weight: bold;}
 .ow-container{font-family: 'Raleway', sans-serif; line-height: 150%; color: #2e3436; width: 320px;}
-.ow-container header {display: table;}
+
+.ow-container header,
+.ow-container header{display: table;}
+.ow-container header .location {margin-left: 7px; font-size: 150%;}
 .ow-container header .cell {display: table-cell; vertical-align: middle}
 .ow-container header .cell .temperature {font-weight: bold; font-size: 140%;}
-.ow-container header .caption {caption-side: top; display: table-caption;}
-.ow-container header .caption .location {margin-left: 7px;}
-.ow-container header .caption .location .bold {font-size: 150%;}
-.ow-container header .caption .description {font-size: 80%;}
 
 .ow-container table {
     display: table;

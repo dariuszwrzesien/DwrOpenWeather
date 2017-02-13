@@ -14,7 +14,7 @@ $apiKey = getenv('OPEN_WEATHER_API_KEY');
 $openWeatherConfig = new Configuration($apiKey);
 
 $openWeather = new OpenWeather('Weather', $openWeatherConfig);
-$weather = $openWeather->getByCityName('London');
+$weather = $openWeather->getByCityName('Llanfairpwllgwyngyll');
 
 ?>
 
@@ -34,16 +34,16 @@ $weather = $openWeather->getByCityName('London');
 <body>
     <section class="ow-container">
         <header>
-            <div class="caption">
-                <div class="location"><span class="bold"><?php echo $weather->cityName() ?></span></div>
-            </div>
-            <div class="cell">
-                <img class="icon"
-                     src="http://openweathermap.org/img/w/<?php echo $weather->icon() ?>.png"
-                     alt="<?php echo $weather->description() ?>">
-            </div>
-            <div class="cell">
-                <div class="temperature"><?php echo Converter::kelvinToCelsius($weather->temp()) ?>&deg;C</div>
+            <div class="location bold"><?php echo $weather->cityName() ?></div>
+            <div class="data-table">
+                <div class="cell">
+                    <img class="icon"
+                         src="http://openweathermap.org/img/w/<?php echo $weather->icon() ?>.png"
+                         alt="<?php echo $weather->description() ?>">
+                </div>
+                <div class="cell">
+                    <span class="temperature"><?php echo Converter::kelvinToCelsius($weather->temp()) ?>&deg;C</span>
+                </div>
             </div>
         </header>
         <table>
@@ -79,6 +79,10 @@ $weather = $openWeather->getByCityName('London');
             <tr>
                 <td>Sunset:</td>
                 <td><?php echo Converter::intToDate($weather->sunset(), 'H:i:s') ?></td>
+            </tr>
+            <tr>
+                <td>Source datetime:</td>
+                <td><?php echo Converter::intToDate($weather->dt(), 'd-m-Y (H:i)') ?></td>
             </tr>
             </tbody>
         </table>
