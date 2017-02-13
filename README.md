@@ -120,7 +120,13 @@ There are several variables which you can set by yourself:
 
 ## Examples
 
-Take a moment and check examples directory in DwrOpenWeather. Maybe you find there a solution which you like.
+Take a moment and check examples directory in DwrOpenWeather. Maybe you will find there a solution which you like.
+
+### weather-basic-small
+![weather-basic-small](examples/img/weather-basic-small.jpg)
+
+### weather-basic-medium
+![weather-basic-medium](examples/img/weather-basic-medium.jpg)
 
 ## License
 
