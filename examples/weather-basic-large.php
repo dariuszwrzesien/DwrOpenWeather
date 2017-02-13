@@ -13,9 +13,9 @@ use Dwr\OpenWeather\Converter\Converter;
 $apiKey = getenv('OPEN_WEATHER_API_KEY');
 $openWeatherConfig = new Configuration($apiKey);
 
+$city = 'Paris';
 $openWeather = new OpenWeather('Weather', $openWeatherConfig);
-$weather = $openWeather->getByCityName('London');
-
+$weather = $openWeather->getByCityName($city);
 ?>
 
 <!doctype html>
@@ -36,19 +36,20 @@ $weather = $openWeather->getByCityName('London');
     <section class="ow-container">
         <div class="ow-weather">
             <header>
-                <div class="caption">
-                    <div class="location"><span class="bold"><?php echo $weather->cityName() ?></span></div>
-                </div>
-                <div class="cell">
-                    <img class="icon"
-                         src="http://openweathermap.org/img/w/<?php echo $weather->icon() ?>.png"
-                         alt="<?php echo $weather->description() ?>">
-                </div>
-                <div class="cell">
-                    <div class="temperature"><?php echo Converter::kelvinToCelsius($weather->temp()) ?>&deg;C</div>
+                <div class="location"><span class="bold"><?php echo $weather->cityName() ?></span></div>
+                <div>
+                    <div class="cell">
+                        <img class="icon"
+                             src="http://openweathermap.org/img/w/<?php echo $weather->icon() ?>.png"
+                             alt="<?php echo $weather->description() ?>">
+                    </div>
+                    <div class="cell">
+                        <span class="temperature"><?php echo Converter::kelvinToCelsius($weather->temp()) ?>&deg;C</span>
+                    </div>
                 </div>
             </header>
-            <table>
+            <div class="tables">
+            <table class="left">
                 <tbody>
                 <tr>
                     <td>Location:</td>
@@ -60,11 +61,23 @@ $weather = $openWeather->getByCityName('London');
                 </tr>
                 <tr>
                     <td>Temperature:</td>
-                    <td><?php echo Converter::kelvinToCelsius($weather->temp()) ?> &deg;C</td>
+                    <td><span class="blue-highlighted"><?php echo Converter::kelvinToCelsius($weather->temp()) ?> &deg;C</span></td>
                 </tr>
                 <tr>
+                    <td>Temperature Min:</td>
+                    <td><?php echo Converter::kelvinToCelsius($weather->tempMin()) ?> &deg;C</td>
+                </tr>
+                <tr>
+                    <td>Temperature Max:</td>
+                    <td><?php echo Converter::kelvinToCelsius($weather->tempMax()) ?> &deg;C</td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="right">
+                <tbody>
+                <tr>
                     <td>Pressure:</td>
-                    <td><?php echo $weather->pressure() ?> hPa</td>
+                    <td><span class="green-highlighted"><?php echo $weather->pressure() ?> hPa</span></td>
                 </tr>
                 <tr>
                     <td>Wind:</td>
@@ -72,7 +85,7 @@ $weather = $openWeather->getByCityName('London');
                 </tr>
                 <tr>
                     <td>Humidity:</td>
-                    <td><?php echo $weather->humidity() ?> %</td>
+                    <td><span class="orange-highlighted"><?php echo $weather->humidity() ?> %</span></td>
                 </tr>
                 <tr>
                     <td>Sunrise:</td>
@@ -82,33 +95,15 @@ $weather = $openWeather->getByCityName('London');
                     <td>Sunset:</td>
                     <td><?php echo Converter::intToDate($weather->sunset(), 'H:i:s') ?></td>
                 </tr>
+                <tr>
+                    <td><span class="xsmall-font">Source datetime:</span></td>
+                    <td><span class="xsmall-font bold"><?php echo Converter::intToDate($weather->dt(), 'd-m-Y (H:i)') ?></span></td>
+                </tr>
                 </tbody>
             </table>
+            <div class="clear-both"></div>
+            </div>
         </div>
-        <div class="ow-forecast">
-            <header>
-                <div class="title bold">Forecast</div>
-            </header>
-            <div class="ow-chart" data-labels=""></div>
-        </div>
-        <div class="clear-both"></div>
     </section>
-    <script type="text/javascript" src="js/chartist.min.js"></script>
-    <script type="text/javascript">
-        new Chartist.Line('.ow-chart', {
-            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-            series: [
-                [12, 9, 7, 8, 5],
-                [2, 1, 3.5, 7, 3],
-                [1, 3, 4, 5, 6]
-            ]
-        }, {
-            fullWidth: true,
-            fullHeight: true,
-            chartPadding: {
-                right: 40
-            }
-        });
-    </script>
 </body>
 </html>

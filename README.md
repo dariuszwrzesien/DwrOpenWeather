@@ -128,6 +128,9 @@ Take a moment and check examples directory in DwrOpenWeather. Maybe you will fin
 ### weather-basic-medium
 ![weather-basic-medium](examples/img/weather-basic-medium.jpg)
 
+### weather-basic-large
+![weather-basic-medium](examples/img/weather-basic-large.jpg)
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
