@@ -54,7 +54,7 @@ $forecast = array_map(function ($value) {
                 <tr>
                     <td><span class="small-font"><?php echo $weather['timestamp'] ?></span></td>
                     <td><img class="icon" src="http://openweathermap.org/img/w/<?php echo $weather['icon'] ?>.png"></td>
-                    <td><span class="green-highlighted"><?php echo $weather['temp'] ?></span></td>
+                    <td><span class="green-highlighted"><?php echo $weather['temp'] .'&nbsp;&deg;C'?></span></td>
                     <td><span class="bold small-font"><?php echo $weather['description'] ?></span></td>
                     <td><span class="italic small-font">pressure:&nbsp;</span><span class="bold small-font"><?php echo $weather['pressure'] .'&nbsp;hPa' ?></span></td>
                     <td><span class="italic small-font">humidity:&nbsp;</span><span class="bold small-font"><?php echo $weather['humidity'] .'&nbsp;%'; ?></span></td>
