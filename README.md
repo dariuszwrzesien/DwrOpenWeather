@@ -85,7 +85,7 @@ You can get forecast from OpenWeather API by using:
   List of city ID city.list.json.gz can be downloaded [here](http://bulk.openweathermap.org/sample/)
 * getByGeographicCoordinates(-0.12574, 51.50853)
 
-## Configuration
+## Configuration (Optional)
 
 You may configure library on your own if you like.
 There are several variables which you can set by yourself:
