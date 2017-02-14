@@ -1,5 +1,5 @@
 {
-    "name": "DwrOpenWeather",
+    "name": "dwr/open-weather",
     "type": "library",
     "description": "Simply web widget showing weather in defined location based on Open Weather API",
     "keywords": [
