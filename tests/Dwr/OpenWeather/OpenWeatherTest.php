@@ -243,7 +243,7 @@ class OpenWeatherTest extends \PHPUnit_Framework_TestCase
         $config->setHttpClient($this->httpClientMock($jsonData));
 
         $openWeather = new OpenWeather($actual, $config);
-        $weather = $openWeather->getByCityName('testCity');
+        $weather = $openWeather->getByGeographicCoordinates(0.01, 0.02);
 
         $arrayData = json_decode($jsonData, true);
 

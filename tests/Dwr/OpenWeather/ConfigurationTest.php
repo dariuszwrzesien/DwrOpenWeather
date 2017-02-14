@@ -17,6 +17,22 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('GuzzleHttp\\Client', $config->getHttpClient());
     }
 
+    public function testIfConfigurationPropertiesOverrideBySetters()
+    {
+        $apiKey = '123';
+        $config = new Configuration($apiKey);
+
+        $testText = "dummy test text";
+
+        $config->setBaseUri($testText);
+        $config->setVersion($testText);
+        $config->setTimeout($testText);
+
+        $this->assertEquals($config->baseUri(), $testText);
+        $this->assertEquals($config->version(), $testText);
+        $this->assertEquals($config->timeout(), $testText);
+    }
+
     public function testConfigurationClient()
     {
         $apiKey = '123';
