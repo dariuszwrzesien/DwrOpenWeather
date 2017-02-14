@@ -129,7 +129,10 @@ Take a moment and check examples directory in DwrOpenWeather. Maybe you will fin
 ![weather-basic-medium](examples/img/weather-basic-medium.jpg)
 
 ### weather-basic-large
-![weather-basic-medium](examples/img/weather-basic-large.jpg)
+![weather-basic-large](examples/img/weather-basic-large.jpg)
+
+### forecast-basic
+![forecast-basic](examples/img/forecast-basic.jpg)
 
 ## License
 

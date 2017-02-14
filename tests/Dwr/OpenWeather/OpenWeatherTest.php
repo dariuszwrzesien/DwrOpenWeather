@@ -248,6 +248,8 @@ class OpenWeatherTest extends \PHPUnit_Framework_TestCase
         $arrayData = json_decode($jsonData, true);
 
         $this->assertEquals($weather->city(), $arrayData['city']);
+        $this->assertEquals($weather->cityName(), $arrayData['city']['name']);
+        $this->assertEquals($weather->country(), $arrayData['city']['country']);
         $this->assertEquals($weather->message(), $arrayData['message']);
         $this->assertEquals($weather->cnt(), $arrayData['cnt']);
         $this->assertEquals($weather->lists(), $arrayData['list']);

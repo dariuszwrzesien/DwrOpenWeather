@@ -44,6 +44,16 @@ class Forecast implements ResponseInterface
         return $this->city;
     }
 
+    public function cityName()
+    {
+        return ($this->city) ? $this->city['name'] : '';
+    }
+
+    public function country()
+    {
+        return ($this->city) ? $this->city['country'] : '';
+    }
+
     /**
      * @return string
      */
