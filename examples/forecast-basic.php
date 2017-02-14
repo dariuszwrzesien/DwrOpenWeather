@@ -33,9 +33,8 @@ $forecast = array_map(function ($value) {
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>DwrOpenWeather widget-1</title>
+    <title>DwrOpenWeather</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="css/chartist.min.css">
     <link rel="stylesheet" href="css/weather-basic-large.css?v=1.0">
 
     <!--[if lt IE 9]>
