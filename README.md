@@ -131,6 +131,9 @@ Take a moment and check examples directory in DwrOpenWeather. Maybe you will fin
 ### weather-basic-large
 ![weather-basic-large](examples/img/weather-basic-large.jpg)
 
+### forecast-chart
+![forecast-chart](examples/img/forecast-chart.jpg)
+
 ### forecast-basic
 ![forecast-basic](examples/img/forecast-basic.jpg)
 
