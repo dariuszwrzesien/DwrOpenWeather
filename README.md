@@ -24,7 +24,7 @@ Add DwrOpenWeather in your composer.json:
 ```json
     {
         "require": {
-            "dwr/open-weather": "1.0"
+            "dwr/open-weather": "1.0.0"
         }
     }
 ```
