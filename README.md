@@ -24,7 +24,7 @@ Add DwrOpenWeather in your composer.json:
 ```json
     {
         "require": {
-            "dwr/openweather": "1.0"
+            "dwr/open-weather": "1.0"
         }
     }
 ```
@@ -39,7 +39,12 @@ or download it by running the command:
 #### GET Weather
 
 ```php
-    require __DIR__ . '/../vendor/autoload.php';
+    // errors reporting
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    require __DIR__ . '/vendor/autoload.php';
     
     use Dwr\OpenWeather\Configuration;
     use Dwr\OpenWeather\OpenWeather;
@@ -62,7 +67,12 @@ You can get weather from OpenWeather API by using:
 #### GET Forecast
 
 ```php
-    require __DIR__ . '/../vendor/autoload.php';
+    // errors reporting
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+        
+    require __DIR__ . '/vendor/autoload.php';
     
     use Dwr\OpenWeather\Configuration;
     use Dwr\OpenWeather\OpenWeather;
