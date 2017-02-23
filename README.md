@@ -31,7 +31,7 @@ Add DwrOpenWeather in your composer.json:
 or download it by running the command:
 
 ```bash
-    $ php composer.phar update dwr/openweather
+    $ php composer.phar require dwr/open-weather
 ```
 
 ### Step 2: Use it in your application
